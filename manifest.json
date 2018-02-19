@@ -3,11 +3,20 @@
     "name": "Lu Trade Helper",
     "version": "0.1.4",
     "description": "Help to catch the best investment production in LU.",
+    "applications": {
+        "gecko": {
+            "id": "{33357429-b362-45db-aa59-b8f50c54480e}",
+            "strict_min_version": "48.0"
+        }
+    },
     "permissions": [
-        "storage", "tabs", "webNavigation", "notifications", "https://*.lu.com/*"
+        "storage", "tabs", "webNavigation", "https://*.lu.com/*"
     ],
     "icons": { "16": "lu.png", "48": "lu.png", "128": "lu.png" },
-    "options_page": "options.html",
+    "options_ui": {
+        "page": "options.html",
+        "browser_style": true
+    },
     "background": {
         "scripts": ["jquery.min.js", "background.js"],
         "persistent": false
