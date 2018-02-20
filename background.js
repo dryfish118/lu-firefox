@@ -360,18 +360,17 @@ function acquireAccount(result, money) {
             console.log("use the max money:\t%d", toMoney);
             money = toMoney;
         }
-        money = toMoney;
         g_toMoney = parseInt(money);
 
         g_fromMoney = getMinMoney();
-        // if (g_fromMoney !== 0) {
-        //     if (g_fromMoney > g_toMoney) {
-        //         console.log("poor man, go to bed and have a good dream.");
-        //         g_workFlow = WorkFlow.WorkFlow_Idle;
-        //         console.log("WorkFlow_Idle");
-        //         return;
-        //     }
-        // }
+        if (g_fromMoney !== 0) {
+            if (g_fromMoney > g_toMoney) {
+                console.log("poor man, go to bed and have a good dream.");
+                g_workFlow = WorkFlow.WorkFlow_Idle;
+                console.log("WorkFlow_Idle");
+                return;
+            }
+        }
 
         g_rate = getMinRate();
         console.log("the current max rate:\t%s", g_rate.toFixed(2));
