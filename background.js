@@ -1,5 +1,6 @@
-//"JWT_issuer": "user:13805456:898",
-//"JWT_secret": "493a67741d9067e31d586bbf58ba94c891975acd3f55a4b02ee08d58701ff9cf"
+//export jwt_issuer="user:13805456:898"
+//export jwt_secret="493a67741d9067e31d586bbf58ba94c891975acd3f55a4b02ee08d58701ff9cf"
+//sudo web-ext sign --api-key=$jwt_issuer --api-secret=$jwt_secret
 
 var WorkFlow = {
     WorkFlow_Idle: 1, // 空闲状态
@@ -294,14 +295,14 @@ function acquireProductList(result, urls) {
         g_workFlow = WorkFlow.WorkFlow_OpenProductPage;
         console.log("WorkFlow_OpenProductPage");
 
-        var i = urls.length - 1;
-        for (; i >= 0; i--) {
+        var i = 0;
+        for (; i < urls.length; i++) {
             if (!g_blackProducts.includes(urls[i])) {
                 break;
             }
         }
 
-        if (i < 0) {
+        if (i == urls.length) {
             console.log("all products are sold, refresh & restart after %d\".", getRefresh() / 1000);
             setTimeout(openProductListPage, getRefresh());
         } else {
