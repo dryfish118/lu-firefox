@@ -1,3 +1,6 @@
+//"JWT_issuer": "user:13805456:898",
+//"JWT_secret": "493a67741d9067e31d586bbf58ba94c891975acd3f55a4b02ee08d58701ff9cf"
+
 var WorkFlow = {
     WorkFlow_Idle: 1, // 空闲状态
     WorkFlow_Start: 2, // 开始投资
@@ -71,7 +74,7 @@ function getTradePass() {
 
 function getRefresh() {
     if (localStorage.refresh === undefined || localStorage.refresh === "") {
-        return 3000;
+        return 10;
     } else {
         return parseInt(localStorage.refresh);
     }
@@ -87,7 +90,7 @@ function getMaxMoney() {
 
 function getMinMoney() {
     if (localStorage.minmoney === undefined || localStorage.minmoney === "") {
-        return 5000;
+        return 1000;
     } else {
         return parseInt(localStorage.minmoney);
     }
@@ -95,7 +98,7 @@ function getMinMoney() {
 
 function getMinRate() {
     if (localStorage.minrate === undefined || localStorage.minrate === "") {
-        return 4.8;
+        return 6.0;
     } else {
         return parseFloat(localStorage.minrate);
     }
